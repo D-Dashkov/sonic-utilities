@@ -2802,7 +2802,6 @@ def update_route(ctx, verbose):
     route_keys = config_db.get_keys("STATIC_ROUTE")
     for key in route_keys:
         route = config_db.get_entry("STATIC_ROUTE", key)
-
         argument = ['prefix']
         if 'vrf' in route:
             argument.append('vrf')
@@ -2818,7 +2817,6 @@ def update_route(ctx, verbose):
         if 'dev_name' in route:
             argument.append('dev')
             argument.append(route['dev_name'])
-
         route = add_del_route(ctx, argument, 'add')
         clicommon.run_command(route['cmd'])
         if verbose:
