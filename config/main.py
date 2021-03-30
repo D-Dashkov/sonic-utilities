@@ -2797,7 +2797,7 @@ def route(ctx):
 @click.option('-v', '--verbose', is_flag=True, help="Enable verbose output")
 @click.pass_context
 def update_route(ctx, verbose):
-    # Transfer static routes from CONFIG_DB to FRR
+    # Move static routes from CONFIG_DB to FRR
     config_db = ctx.obj['config_db']
     route_keys = config_db.get_keys("STATIC_ROUTE")
     for key in route_keys:
